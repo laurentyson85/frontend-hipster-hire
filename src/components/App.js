@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Nav from './Nav';
 import JobHome from './JobHome';
@@ -15,7 +15,7 @@ function App() {
       <div>
         <Header />
         <Nav />        
-        <Switch>        
+        <Routes>        
           <Route path="/hipsters">
             <HipsterView/>
           </Route>
@@ -31,7 +31,7 @@ function App() {
           <Route path="*">
             <h1>No Hipsters or Jobs Here</h1>
           </Route>
-        </Switch>
+        </Routes>
       </div>
     );
   }
