@@ -7,7 +7,7 @@ function JobListing({title, employment, companyName, id}) {
     <li className="Job listing">
       <span>{title}</span>
       <span className="employment">{employment}</span>
-      <span className="company">{companyName}</span>
+      <span className="company">Company: {companyName}</span>
       <Link className="detailsLink" to={`/${id}`}>View Details</Link>
     </li>
     
