@@ -1,14 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+
+let activeStyle = {
+    color:"white",
+    borderBottom: "2px solid white",
+  }
 
 
 function Nav() {
   return (
     <div className="navBar">
-        <nav>
-        <Link to="/">All Jobs</Link>
-        <Link to="hipsters">Hipster View</Link>
-        <Link to="new_posting">New Job Posting</Link>
+        <nav>        
+        <NavLink
+            to="/"
+            end
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >
+            All Jobs
+          </NavLink>       
+        <NavLink
+            to="hipsters"
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >
+            Hipster View
+          </NavLink>        
+        <NavLink
+            to="new_posting"
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >
+            New Job Posting
+          </NavLink>
         </nav>
     </div>
     

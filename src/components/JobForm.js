@@ -2,7 +2,7 @@ import React from "react";
 
 function JobForm() {
   return (
-    <div>hold</div>
+    <div>form</div>
     
   )
 }

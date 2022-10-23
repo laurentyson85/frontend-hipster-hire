@@ -2,7 +2,7 @@ import React from "react";
 
 function JobHome() {
   return (
-    <div>hold</div>
+    <div>home</div>
     
   )
 }

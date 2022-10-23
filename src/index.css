@@ -1,5 +1,5 @@
 body {
-  background-color: #f5c000; 
+  background-color: #b1cbbb; 
   color: #212121;
 }
 
@@ -16,14 +16,14 @@ nav a {
   margin: 4rem;
   text-decoration: none;
   font-size: 1.6em;
-  color: #116600;
-  border-bottom: 2px solid #116600;
+  color: #000;
+  border-bottom: 2px solid #000;
   transition: 0.1s;
   
 }
 
-nav a:hover,
-nav a:active {
-  color: white;
-  border-bottom: 2px solid white;
+nav a:hover {  
+  border-bottom: 2px solid #000;
+  background-color: #9fa9a3
 }
+
