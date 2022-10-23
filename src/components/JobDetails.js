@@ -2,7 +2,7 @@ import React from "react";
 
 function JobDetails() {
   return (
-    <div>hold</div>
+    <div>hold on details</div>
     
   )
 }

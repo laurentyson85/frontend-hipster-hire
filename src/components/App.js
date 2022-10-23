@@ -37,7 +37,7 @@ function App() {
           <Route path="hipsters" element={<HipsterView />}/>          
           <Route path=":id" element={<JobDetails />}/>          
           <Route path="new_posting" element={<JobForm />}/>
-          <Route exact path="/" element={<JobHome />}/>
+          <Route path="/*" element={<JobHome />}/>
         </Routes>
       </div>
     );
