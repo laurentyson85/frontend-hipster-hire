@@ -3,6 +3,17 @@ body {
   color: #212121;
 }
 
+.header {
+  text-align: center;
+  font-size: 2em;
+}
+
+#headerImg {
+  width: 1150px;
+  height: auto;
+  margin: 1.5rem;
+}
+
 .navBar {  
   margin: 1.5rem;
   margin-right: auto;    
