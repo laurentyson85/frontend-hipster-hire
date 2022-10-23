@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import Nav from'./Nav';
@@ -9,8 +9,26 @@ import JobDetails from './JobDetails';
 
 
 
-
 function App() {
+  const [allJobs, setAllJobs] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:9292")
+    .then(response => response.json())
+    .then(data => setAllJobs(data))
+  }, [])
+
+
+
+
+
+
+
+
+
+
+
+
   return (    
       <div>
         <Header />
