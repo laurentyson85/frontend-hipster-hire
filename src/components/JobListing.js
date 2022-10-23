@@ -1,20 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom"
 
-function JobListing() {
+function JobListing({title, employment, companyName, id}) {
 
-
-
-
-
-
-//   return (
-//     <li className={jobListing}>
-//       <span>{title}</span>
-//       <span className="employment">{employment}</span>
-//       <span className="company">{company}</span>
-//       <Link className="detailsLink" to={`/${id}`}>View Details</Link>
-//     </li>
+  return (
+    <li className="Job listing">
+      <span>{title}</span>
+      <span className="employment">{employment}</span>
+      <span className="company">{companyName}</span>
+      <Link className="detailsLink" to={`/${id}`}>View Details</Link>
+    </li>
     
   )
 }
