@@ -1,10 +1,6 @@
 import React from "react";
 
-function JobHome(allJobs) {
-    console.log(allJobs)
-
-
-
+function JobHome({allJobs}) {
 
 
   return (
