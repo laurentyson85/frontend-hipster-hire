@@ -7,8 +7,8 @@ function Nav() {
     <div className="navBar">
         <nav>
         <Link to="/">All Jobs</Link>
-        <Link to="/hipsters">Hipster View</Link>
-        <Link to="/new_posting">New Job Posting</Link>
+        <Link to="hipsters">Hipster View</Link>
+        <Link to="new_posting">New Job Posting</Link>
         </nav>
     </div>
     
