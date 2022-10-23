@@ -34,10 +34,22 @@ function App() {
         <Header />
         <Nav />        
         <Routes>        
-          <Route path="hipsters" element={<HipsterView />}/>          
-          <Route path=":id" element={<JobDetails />}/>          
-          <Route path="new_posting" element={<JobForm />}/>
-          <Route path="/*" element={<JobHome />}/>
+          <Route 
+            path="hipsters" 
+            element={<HipsterView />}
+            />          
+          <Route 
+            path=":id" 
+            element={<JobDetails />}
+            />          
+          <Route 
+            path="new_posting" 
+            element={<JobForm />}
+            />
+          <Route 
+            path="/*" 
+            element={<JobHome allJobs={allJobs} />}
+            />
         </Routes>
       </div>
     );
