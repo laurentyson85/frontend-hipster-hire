@@ -19,7 +19,7 @@ if (allJobs.length > 0){
             <img src={logoUrl} alt="company logo" />
             <h3>{name}</h3> 
             <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
-            <p>We're hiring a {title}. A {field} {position} who is skilled in: {key_skill}</p>
+            <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
             <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>
         </div>
       ); 
