@@ -37,7 +37,7 @@ function App() {
             />          
           <Route 
             path=":id" 
-            element={<JobDetails />}
+            element={<JobDetails allJobs={allJobs} />}
             />          
           <Route 
             path="new_posting" 
