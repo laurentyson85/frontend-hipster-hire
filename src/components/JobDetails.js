@@ -29,3 +29,5 @@ if (allJobs.length > 0){
 }
 
 export default JobDetails;
+
+//TO DOs: add hire a hipster functionality and delete a listing functionality. Add a button - Say if the position is filled..if not filled, can click to hire a hipster (post request). Another button - if a position is not filled AND is expired then can delete listing (delete request) Two big, buttons at the bottom find some fun icons 
