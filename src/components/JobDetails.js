@@ -3,10 +3,18 @@ import { useParams } from "react-router-dom"
 
 function JobDetails({allJobs}) {
     
-const { id } = useParams() 
+const { id } = useParams()
+
+function handleHireClick(){
+    console.log("hired a hipster")
+}
+
+function handleDeleteClick(){
+    console.log("deleted that job")
+}
 
 if (allJobs.length > 0){
-    const {title, field, position, key_skill, employment, company: {
+    const {title, field, position, key_skill, open, expired, employment, company: {
         logo_url,
         hired_hipsters,
         name,
@@ -22,7 +30,18 @@ if (allJobs.length > 0){
             <p>{hired_hipsters}</p> 
             <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
             <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
+            {expired? (
+                <p>Position has been filled. Delete it</p>
+                    ) : (
+                <p>Active job posting</p>
+            )}
             <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>
+            {open? (
+                <button className="open job" onClick={handleHireClick}>Hire a Hipster</button>
+                    ) : (
+                null
+            )}
+            <button className="expired" onClick={handleDeleteClick}>Need to delete? Click here</button>
         </div>
       ); 
   } else{
@@ -32,4 +51,4 @@ if (allJobs.length > 0){
 
 export default JobDetails;
 
-//TO DOs: add hire a hipster functionality and delete a listing functionality. Add a button - Say if the position is filled..if not filled, can click to hire a hipster (post request). Another button - if a position is not filled AND is expired then can delete listing (delete request) Two big, buttons at the bottom find some fun icons 
+//TO DOs: add hire a hipster functionality and delete a listing functionality. Add a button - Say if the position is filled..if not filled, can click to hire a hipster (post request). Another button - if a position is not filled AND is expired then can delete listing (delete request) Two big, buttons at the bottom find some fun icons. 
