@@ -7,7 +7,8 @@ const { id } = useParams()
 
 if (allJobs.length > 0){
     const {title, field, position, key_skill, employment, company: {
-        logoUrl,
+        logo_url,
+        hired_hipsters,
         name,
         slogan
     },
@@ -16,8 +17,9 @@ if (allJobs.length > 0){
     
     return (
         <div className="jobDetails">                   
-            <img src={logoUrl} alt="company logo" />
-            <h3>{name}</h3> 
+            <img src={logo_url} alt="company logo" />
+            <h3>{name}</h3>
+            <p>{hired_hipsters}</p> 
             <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
             <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
             <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>
