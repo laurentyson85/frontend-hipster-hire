@@ -22,6 +22,8 @@ if (allJobs.length > 0){
     },
     } = allJobs.find(job => job.id === parseInt(id))
 
+    //clean up open and expired logic and text. display some combo of filled, open and avtive, and open and expired.
+
     
     return (
         <div className="jobDetails">                   
@@ -31,10 +33,11 @@ if (allJobs.length > 0){
             <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
             <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
             {expired? (
-                <p>Position has been filled. Delete it</p>
+                <p>The position is expired. We weren't able to hire a hipster in time. Delete it</p>
                     ) : (
                 <p>Active job posting</p>
             )}
+            
             <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>
             {open? (
                 <button className="open job" onClick={handleHireClick}>Hire a Hipster</button>

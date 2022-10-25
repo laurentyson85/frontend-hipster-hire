@@ -2,7 +2,6 @@ import React from "react";
 import JobListing from "./JobListing";
 
 function JobHome({allJobs}) {
-    console.log(allJobs)
 const myJobs = allJobs.map(job => {
     return(
         <JobListing
