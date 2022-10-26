@@ -37,9 +37,12 @@ function JobDetails({allJobs, onHireHipster, onDeleteJob }) {
             <button className="open job" onClick={handleHireClick}>Hire a Hipster</button>
                   ) : (
             <button className="expired" onClick={handleDeleteClick}>Need to delete? Click here</button>
-          )}         
+          )}
+         
        </div>
       )
    } 
 
 export default JobDetails;
+
+//TO DOs: add hire a hipster functionality and delete a listing functionality. 
