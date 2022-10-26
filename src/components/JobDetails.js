@@ -13,11 +13,11 @@ function JobDetails({allJobs}) {
       } = allJobs.find(job => job.id === parseInt(id))
 
   function handleHireClick(){
-    console.log("hired a hipster")
+    console.log(id)
   }
 
   function handleDeleteClick(){
-    console.log("deleted that job")
+    console.log(id)
   }
   
 
@@ -47,4 +47,4 @@ function JobDetails({allJobs}) {
 
 export default JobDetails;
 
-//TO DOs: add hire a hipster functionality and delete a listing functionality. Add a button - Say if the position is filled..if not filled, can click to hire a hipster (post request). Another button - if a position is not filled AND is expired then can delete listing (delete request) Two big, buttons at the bottom find some fun icons. 
+//TO DOs: add hire a hipster functionality and delete a listing functionality. 
