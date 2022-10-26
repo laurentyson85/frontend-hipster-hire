@@ -11,6 +11,8 @@ import JobDetails from './JobDetails';
 
 function App() {
   const [allJobs, setAllJobs] = useState([])
+  const [hipsterCount, setHipsterCount] = useState(25)
+  //update hipsterCount state as new hipster are created
 
   useEffect(() => {
     fetch("http://localhost:9292")
@@ -19,7 +21,30 @@ function App() {
   }, [])
 
   function onHireHipster(id){
-    console.log(id)
+    console.log(hipsterCount)
+    console.log(Math.floor(Math.random() * `${hipsterCount}`) + 1)
+    
+  //   fetch(`http://localhost:9292/jobs/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //   }, 
+  //   body: JSON.stringify({      
+  //       "hipster_id": 
+  //       "open": false
+  //   }),
+  // })
+  // .then((r) => r.json())
+  // .then(() => {
+  //   const updatedQuestion = questions.map((question) => {
+  //     if (question.id === id){
+  //       return updatedQuestion
+  //     } else {
+  //       return question
+  //     }
+  //   })
+  //   setQuestions(updatedQuestion)
+  // });  
   }
 
   function onDeleteJob(id){
