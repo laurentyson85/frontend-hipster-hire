@@ -17,13 +17,14 @@ function App() {
     .then(response => response.json())
     .then(data => setAllJobs(data))
   }, [])
-  
 
+  function onHireHipster(id){
+    console.log(id)
+  }
 
-
-
-
-
+  function onDeleteJob(id){
+    console.log(id)
+  }
 
 
 
@@ -38,7 +39,7 @@ function App() {
             />          
           <Route 
             path=":id" 
-            element={<JobDetails allJobs={allJobs} />}
+            element={<JobDetails allJobs={allJobs} onHireHipster={onHireHipster} onDeleteJob={onDeleteJob}/>}
             />          
           <Route 
             path="new_posting" 
