@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom"
 
-function JobDetails({allJobs}) {
-    
+function JobDetails({allJobs, onHireHipster, onDeleteJob }) {    
   const { id } = useParams()
   const {title, field, position, key_skill, open, expired, employment, company: {
           logo_url,
@@ -13,13 +12,12 @@ function JobDetails({allJobs}) {
       } = allJobs.find(job => job.id === parseInt(id))
 
   function handleHireClick(){
-    console.log(id)
+    onHireHipster(id)
   }
 
   function handleDeleteClick(){
-    console.log(id)
-  }
-  
+    onDeleteJob(id)
+  }  
 
     
   return (
@@ -39,12 +37,9 @@ function JobDetails({allJobs}) {
             <button className="open job" onClick={handleHireClick}>Hire a Hipster</button>
                   ) : (
             <button className="expired" onClick={handleDeleteClick}>Need to delete? Click here</button>
-          )}
-         
+          )}         
        </div>
       )
    } 
 
 export default JobDetails;
-
-//TO DOs: add hire a hipster functionality and delete a listing functionality. 
