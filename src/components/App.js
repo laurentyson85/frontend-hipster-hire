@@ -20,10 +20,13 @@ function App() {
     .then(data => setAllJobs(data))
   }, [])
 
+  function hireRandomHipster(){
+    Math.floor(Math.random() * `${hipsterCount}`) + 1
+  }
+
   function onHireHipster(id){
     console.log(hipsterCount)
-    console.log(Math.floor(Math.random() * `${hipsterCount}`) + 1)
-    
+
   //   fetch(`http://localhost:9292/jobs/${id}`, {
   //     method: "PATCH",
   //     headers: {
