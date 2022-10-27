@@ -1,9 +1,12 @@
 import React from "react";
 
-function Hipster() {
+function Hipster({name, bio, myCompanies}) {   
   return (
-    <div>form</div>
-    
+    <div>
+      <p>{name}</p>
+      <p>{bio}</p>
+      <p>{myCompanies}</p>
+    </div>    
   )
 }
 
