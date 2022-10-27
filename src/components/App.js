@@ -25,27 +25,31 @@ function App() {
 
   function onHireHipster(id){
     console.log(id)
-  //   fetch(`http://localhost:9292/jobs/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //   }, 
-  //   body: JSON.stringify({      
-  //       "hipster_id": `${hiredHipster}`
-  //       "open": false
-  //   }),
-  // })
-  // .then((r) => r.json())
-  // .then(() => {
-  //   const updatedQuestion = questions.map((question) => {
-  //     if (question.id === id){
-  //       return updatedQuestion
-  //     } else {
-  //       return question
-  //     }
-  //   })
-  //   setQuestions(updatedQuestion)
-  // });  
+    fetch(`http://localhost:9292/jobs/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+    }, 
+    body: JSON.stringify({      
+        "hipster_id": `${hiredHipster}`,
+        "open": false
+    }),
+  })
+  .then((r) => r.json())
+  .then(() => {
+    const updatedJobs = allJobs.map((job) => {
+      if (job.id === id){
+        return {
+          ...job,
+          hipster_id: `${hiredHipster}`,
+          open: false
+        }
+      } else {
+        return job
+      }
+    })
+    console.log(updatedJobs)
+  });  
   }
 
   function onDeleteJob(id){
