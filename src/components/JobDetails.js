@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom"
 
-function JobDetails({allJobs, onHireHipster, onDeleteJob }) {    
+function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
+  const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1      
   const { id } = useParams()
   const {title, field, position, key_skill, open, expired, employment, company: {
           logo_url,
@@ -17,9 +18,46 @@ function JobDetails({allJobs, onHireHipster, onDeleteJob }) {
 
   function handleDeleteClick(){
     onDeleteJob(id)
-  }  
+  } 
 
-    
+
+  function onHireHipster(id){
+    fetch(`http://localhost:9292/jobs/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+    }, 
+    body: JSON.stringify({      
+        "hipster_id": `${hiredHipster}`,
+        "open": false
+    }),
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    const updatedJobs = allJobs.map((job) => {
+      if (job.id === Number(id)){
+        return data
+      } else {
+        return job
+      }
+    })
+      updateAllJobs(updatedJobs)
+    });  
+  }
+  
+  function onDeleteJob(id){
+    fetch(`http://localhost:9292/jobs/${id}`,{
+      method: "DELETE",
+    })
+    .then(response => response.json())
+    .then(() => {
+      const updatedJobs = allJobs.filter((job) => job.id !== Number(id))
+      updateAllJobs(updatedJobs)
+    })
+  }
+  
+
+
   return (
       <div className="jobDetails">                   
           <img src={logo_url} alt="company logo" />

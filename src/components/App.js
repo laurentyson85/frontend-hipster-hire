@@ -11,7 +11,7 @@ import JobDetails from './JobDetails';
 
 function App() {
   const [allJobs, setAllJobs] = useState([])
-  const [hipsterCount, setHipsterCount] = useState(25) //to do: update hipsterCount state when new hipster is created
+  const [hipsterCount, setHipsterCount] = useState(25) //to do: update hipsterCount state when new hipster is created  
 
   useEffect(() => {
     fetch("http://localhost:9292")
@@ -19,46 +19,12 @@ function App() {
     .then(data => setAllJobs(data))
   }, [])
 
- const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1
-
- //maybe move this to the details level and send state up
-//this code works, but have something visually happen to show a hipster was hired
-  function onHireHipster(id){
-    fetch(`http://localhost:9292/jobs/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-    }, 
-    body: JSON.stringify({      
-        "hipster_id": `${hiredHipster}`,
-        "open": false
-    }),
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    const updatedAllJobs = allJobs.map((job) => {
-      if (job.id === Number(id)){
-        return data
-      } else {
-        return job
-      }
-    })
-    setAllJobs(updatedAllJobs)
-    });  
+  function updateAllJobs(updatedJobs){
+    setAllJobs(updatedJobs)
   }
 
- //maybe move this to the details level and send state up 
-//this code works, add useHistory hook here 👇 to route user somewhere else when job is deleted. Maybe route to new job posting
-  function onDeleteJob(id){
-    fetch(`http://localhost:9292/jobs/${id}`,{
-      method: "DELETE",      
-  })
-  .then(response => response.json())
-  .then(() => {
-      const updatedAllJobs = allJobs.filter((job) => job.id !== Number(id))
-      setAllJobs(updatedAllJobs)
-    })
-  }
+ 
+
 
 
   return (    
@@ -72,7 +38,7 @@ function App() {
             />          
           <Route 
             path=":id" 
-            element={<JobDetails allJobs={allJobs} onHireHipster={onHireHipster} onDeleteJob={onDeleteJob}/>}
+            element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
             />          
           <Route 
             path="new_posting" 

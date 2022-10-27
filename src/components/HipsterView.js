@@ -9,6 +9,8 @@ function HipsterView() {
     .then(data => setAllHipsters(data))
   }, [])
 
+ 
+
 
 
 
