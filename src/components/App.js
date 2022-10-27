@@ -24,7 +24,6 @@ function App() {
   
 
   function onHireHipster(id){
-    console.log(id)
     fetch(`http://localhost:9292/jobs/${id}`, {
       method: "PATCH",
       headers: {
@@ -35,20 +34,16 @@ function App() {
         "open": false
     }),
   })
-  .then((r) => r.json())
-  .then(() => {
-    const updatedJobs = allJobs.map((job) => {
-      if (job.id === id){
-        return {
-          ...job,
-          hipster_id: `${hiredHipster}`,
-          open: false
-        }
+  .then((response) => response.json())
+  .then((data) => {
+    const updatedAllJobs = allJobs.map((job) => {
+      if (job.id == id){
+        return data
       } else {
         return job
       }
     })
-    console.log(updatedJobs)
+    setAllJobs(updatedAllJobs)
   });  
   }
 
