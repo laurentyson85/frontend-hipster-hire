@@ -36,22 +36,22 @@ function App() {
           <Route 
             path="hipsters" 
             element={<HipsterView />}
-            />          
-          <Route 
-            path="/jobs/:id" 
-            element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
-            />          
+            />        
+                    
           <Route 
             path="new_posting" 
             element={<JobForm />}
             />
           <Route 
-            path="/jobs" 
-            element={<JobHome allJobs={allJobs} />}
-            />
+            path="jobs" 
+            element={<JobHome allJobs={allJobs} />}/>
+              <Route 
+                path=":id" 
+                element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
+              />            
             <Route 
-             path="/*" 
-             element={<Home />}
+              path="/*" 
+              element={<Home />}
             />
         </Routes>
       </div>

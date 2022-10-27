@@ -21,7 +21,7 @@ function Nav() {
             Home
           </NavLink>        
         <NavLink
-            to="/jobs"
+            to="jobs"
             end
             style={({ isActive }) =>
               isActive ? activeStyle : undefined

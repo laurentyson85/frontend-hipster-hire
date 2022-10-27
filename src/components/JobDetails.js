@@ -4,11 +4,9 @@ import { useParams } from "react-router-dom"
 function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1      
   const { id } = useParams()
-  const {title, field, position, key_skill, open, expired, employment, company: {
-          logo_url,
-          hired_hipsters,
+  const {title, position, key_skill, open, expired, hipster_id, employment, company_logo_url, company_name, company_slogan, hipster: {
+          bio,
           name,
-          slogan
         }
       } = allJobs.find(job => job.id === Number(id))
 
@@ -62,11 +60,10 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
 
   return (
       <div className="jobDetails">                   
-          <img src={logo_url} alt="company logo" />
+          <img src={company_logo_url} alt="company logo" />
           <h3>{name}</h3>
-          <p>{hired_hipsters}</p> 
-          <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
-          <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
+          <p><span style={{fontWeight: "bold"}}>Company slogan</span> {company_slogan}</p>
+          <p>We're hiring a {title}. This {position} is skilled in: {key_skill}</p>
           {expired? (
               <p>The position is expired. We weren't able to hire a hipster in time. Delete it</p>
                   ) : (
