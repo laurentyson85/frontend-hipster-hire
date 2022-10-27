@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
 import Header from './Header';
 import Nav from'./Nav';
 import JobHome from './JobHome';
@@ -37,7 +38,7 @@ function App() {
             element={<HipsterView />}
             />          
           <Route 
-            path=":id" 
+            path="/jobs/:id" 
             element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
             />          
           <Route 
@@ -45,8 +46,12 @@ function App() {
             element={<JobForm />}
             />
           <Route 
-            path="/*" 
+            path="/jobs" 
             element={<JobHome allJobs={allJobs} />}
+            />
+            <Route 
+             path="/*" 
+             element={<Home />}
             />
         </Routes>
       </div>

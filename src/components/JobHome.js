@@ -9,7 +9,7 @@ const myJobs = allJobs.map(job => {
         id={job.id}
         title={job.title}
         employment={job.employment}
-        companyName={job.company.name}
+        companyName={job.company_name}
         />
     )
 })
