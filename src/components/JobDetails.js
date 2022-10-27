@@ -9,7 +9,7 @@ function JobDetails({allJobs, onHireHipster, onDeleteJob }) {
           name,
           slogan
         }
-      } = allJobs.find(job => job.id === parseInt(id))
+      } = allJobs.find(job => job.id === Number(id))
 
   function handleHireClick(){
     onHireHipster(id)
@@ -45,4 +45,3 @@ function JobDetails({allJobs, onHireHipster, onDeleteJob }) {
 
 export default JobDetails;
 
-//TO DOs: add hire a hipster functionality and delete a listing functionality. 
