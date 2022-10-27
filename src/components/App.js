@@ -46,7 +46,7 @@ function App() {
             path="jobs" 
             element={<JobHome allJobs={allJobs} />}/>
               <Route 
-                path=":id" 
+                path="jobs/:id" 
                 element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
               />            
             <Route 
