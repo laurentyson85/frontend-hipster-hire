@@ -14,7 +14,7 @@ function App() {
   const [hipsterCount, setHipsterCount] = useState(25) //to do: update hipsterCount state when new hipster is created  
 
   useEffect(() => {
-    fetch("http://localhost:9292")
+    fetch("http://localhost:9292/jobs")
     .then(response => response.json())
     .then(data => setAllJobs(data))
   }, [])

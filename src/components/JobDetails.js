@@ -22,6 +22,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
 
 
   function onHireHipster(id){
+    console.log(id)
     fetch(`http://localhost:9292/jobs/${id}`, {
       method: "PATCH",
       headers: {
@@ -46,14 +47,15 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   }
   
   function onDeleteJob(id){
-    fetch(`http://localhost:9292/jobs/${id}`,{
-      method: "DELETE",
-    })
-    .then(response => response.json())
-    .then(() => {
+    console.log(id)
+    // fetch(`http://localhost:9292/jobs/${id}`,{
+    //   method: "DELETE",
+    // })
+    // .then(response => response.json())
+    // .then(() => {
       const updatedJobs = allJobs.filter((job) => job.id !== Number(id))
-      updateAllJobs(updatedJobs)
-    })
+      console.log(updatedJobs)
+    // })
   }
   
 
