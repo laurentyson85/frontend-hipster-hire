@@ -37,13 +37,13 @@ function App() {
   .then((response) => response.json())
   .then((data) => {
     const updatedAllJobs = allJobs.map((job) => {
-      if (job.id == id){
+      if (job.id === Number(id)){
         return data
       } else {
         return job
       }
     })
-      setAllJobs(updatedAllJobs)
+    setAllJobs(updatedAllJobs)
     });  
   }
 
@@ -55,7 +55,7 @@ function App() {
   })
   .then(response => response.json())
   .then(() => {
-      const updatedAllJobs = allJobs.filter((job) => job.id != id)
+      const updatedAllJobs = allJobs.filter((job) => job.id !== Number(id))
       setAllJobs(updatedAllJobs)
     })
   }
