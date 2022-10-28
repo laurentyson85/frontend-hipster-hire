@@ -8,16 +8,14 @@ function JobHome({allJobs}) {
 
 
   function handleFilter(event){
-    const booleanString = event.target.value
-    const option = booleanString.toLowerCase()==="true"? true :false
-    setFilterOption(option)
+    setFilterOption(event.target.value)
   }
 
 
   const filteredJobs = allJobs.filter((job) => {
     if (filterOption === "All") return true;
 
-    return job.open === filterOption;
+    return job.open.toString() === filterOption;
   })
 
 
@@ -36,8 +34,8 @@ const myJobs = filteredJobs.map(job => {
 
   return (
     <div>
-      <ul className="cards">{myJobs}</ul>
       <Filter handleFilter={handleFilter}/>
+      <ul className="cards">{myJobs}</ul>      
     </div>
     
     
