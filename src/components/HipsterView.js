@@ -13,7 +13,7 @@ function HipsterView() {
 
   function addNewHipster(newHipster){  
     const updatedHipsters = [...allHipsters, newHipster]
-    console.log(updatedHipsters)
+    setAllHipsters(updatedHipsters)
   }
 
 
