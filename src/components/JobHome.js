@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import JobListing from "./JobListing";
 import Filter from "./Filter";
 
@@ -8,14 +8,16 @@ function JobHome({allJobs}) {
 
 
   function handleFilter(event){
-    setFilterOption(event.target.value)
+    const booleanString = event.target.value
+    const option = booleanString.toLowerCase()==="true"? true :false
+    setFilterOption(option)
   }
 
 
   const filteredJobs = allJobs.filter((job) => {
-    if (selectedGroup === "All") return true;
+    if (filterOption === "All") return true;
 
-    return job.open === selectedGroup;
+    return job.open === filterOption;
   })
 
 
@@ -33,7 +35,11 @@ const myJobs = filteredJobs.map(job => {
 })
 
   return (
-    <ul className="cards">{myJobs}</ul>
+    <div>
+      <ul className="cards">{myJobs}</ul>
+      <Filter handleFilter={handleFilter}/>
+    </div>
+    
     
   )
 }

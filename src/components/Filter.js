@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filter(handleFilter) {
+function Filter({handleFilter}) {
   return (    
     <div className="filter">
       <label>Filter by Availability</label>        
