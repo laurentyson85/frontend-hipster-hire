@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Hipster from './Hipster';
 import HipsterForm from './HipsterForm';
 
-function HipsterView() {
+function HipsterView({updateHipsterCount}) {
   const [allHipsters, setAllHipsters] = useState([])
 
   useEffect(() => {
@@ -14,6 +14,7 @@ function HipsterView() {
   function addNewHipster(newHipster){  
     const updatedHipsters = [...allHipsters, newHipster]
     setAllHipsters(updatedHipsters)
+    updateHipsterCount(updatedHipsters)
   }
 
 

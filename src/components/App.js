@@ -29,9 +29,8 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
-  function updateHipsterCount(updatedHipsters){        
-    const count = updatedHipsters.length       
-    setHipsterCount(hipsterCount + count)
+  function updateHipsterCount(updatedHipsters){ 
+    setHipsterCount(updatedHipsters.length)
 }
 
  
