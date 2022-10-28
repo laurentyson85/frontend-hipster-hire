@@ -12,7 +12,7 @@ import JobDetails from './JobDetails';
 
 function App() {
   const [allJobs, setAllJobs] = useState([])
-  const [hipsterCount, setHipsterCount] = useState(25) //to do: update hipsterCount state when new hipster is created  
+  const [hipsterCount, setHipsterCount] = useState(10) //to do: update hipsterCount state when new hipster is created  
 
   useEffect(() => {
     fetch("http://localhost:9292/jobs")
@@ -29,6 +29,11 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
+  function updateHipsterCount(updatedHipsters){        
+    const count = updatedHipsters.length       
+    setHipsterCount(hipsterCount + count)
+}
+
  
 
 
@@ -40,7 +45,7 @@ function App() {
         <Routes>        
           <Route 
             path="hipsters" 
-            element={<HipsterView />}
+            element={<HipsterView updateHipsterCount={updateHipsterCount}/>}
             />        
                     
           <Route 
