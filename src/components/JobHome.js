@@ -1,8 +1,26 @@
 import React from "react";
 import JobListing from "./JobListing";
+import Filter from "./Filter";
 
 function JobHome({allJobs}) {
-const myJobs = allJobs.map(job => {
+  const [filterOption, setFilterOption] = useState("All")
+
+
+
+  function handleFilter(event){
+    setFilterOption(event.target.value)
+  }
+
+
+  const filteredJobs = allJobs.filter((job) => {
+    if (selectedGroup === "All") return true;
+
+    return job.open === selectedGroup;
+  })
+
+
+
+const myJobs = filteredJobs.map(job => {
     return(
         <JobListing
         key={job.id}
