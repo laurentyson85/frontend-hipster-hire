@@ -6,11 +6,8 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   const { id } = useParams()
 
 
-
-
   const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster
       } = allJobs.find(job => job.id === Number(id))
-
 
 
   function handleHireClick(){
@@ -23,7 +20,6 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
 
 
   function onHireHipster(id){
-    console.log(id)
     fetch(`http://localhost:9292/jobs/${id}`, {
       method: "PATCH",
       headers: {
@@ -49,14 +45,14 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   
   function onDeleteJob(id){
     console.log(id)
-    // fetch(`http://localhost:9292/jobs/${id}`,{
-    //   method: "DELETE",
-    // })
-    // .then(response => response.json())
-    // .then(() => {
+    fetch(`http://localhost:9292/jobs/${id}`,{
+      method: "DELETE",
+    })
+    .then(response => response.json())
+    .then(() => {
       const updatedJobs = allJobs.filter((job) => job.id !== Number(id))
       console.log(updatedJobs)
-    // })
+    })
   }
   
 

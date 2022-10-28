@@ -21,7 +21,7 @@ function App() {
   }, [])
 
   function updateAllJobs(updatedJobs){
-    setAllJobs(updatedJobs)
+    console.log(updatedJobs)
   }
 
   function addNewJob(newJob){  
