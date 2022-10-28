@@ -24,6 +24,11 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
+  function addNewJob(newJob){  
+    const updatedJobs = [...allJobs, newJob]
+    console.log(updatedJobs)
+  }
+
  
 
 
@@ -40,7 +45,7 @@ function App() {
                     
           <Route 
             path="new_posting" 
-            element={<JobForm />}
+            element={<JobForm addNewJob={addNewJob}/>}
             />
           <Route 
             path="jobs" 
