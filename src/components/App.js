@@ -26,7 +26,7 @@ function App() {
 
   function addNewJob(newJob){  
     const updatedJobs = [...allJobs, newJob]
-    console.log(updatedJobs)
+    setAllJobs(updatedJobs)
   }
 
  

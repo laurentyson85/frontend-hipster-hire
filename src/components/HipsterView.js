@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Hipster from './Hipster';
+import HipsterForm from './HipsterForm';
 
 function HipsterView() {
   const [allHipsters, setAllHipsters] = useState([])
@@ -9,6 +10,11 @@ function HipsterView() {
     .then(response => response.json())
     .then(data => setAllHipsters(data))
   }, [])
+
+  function addNewHipster(newHipster){  
+    const updatedHipsters = [...allHipsters, newHipster]
+    console.log(updatedHipsters)
+  }
 
 
   const myHipsters = allHipsters.map(hipster => {
@@ -26,7 +32,10 @@ function HipsterView() {
 
 
   return (
-    <div>{myHipsters}</div>
+    <div>{myHipsters}
+    <HipsterForm addNewHipster={addNewHipster}/>
+    </div>
+    
     
   )
 }
