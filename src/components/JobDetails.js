@@ -8,15 +8,8 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
 
 
 
-  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster: {
-          bio,
-          name
-        }
+  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster
       } = allJobs.find(job => job.id === Number(id))
-
-
-
-
 
 
 
@@ -85,7 +78,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           {open? (
             <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
                   ) : (
-            <p>This hipster already has the job: {name} their bio: {bio}</p>
+            <p>This hipster already has the job: {hipster.name} their bio: {hipster.bio}</p>
           )}
          
        </div>
