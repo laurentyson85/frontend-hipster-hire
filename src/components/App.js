@@ -20,6 +20,7 @@ function App() {
     .then(response => response.json())
     .then(data => setAllJobs(data))
   }, [])
+  
 
   function updateAllJobs(updatedJobs){
     console.log(updatedJobs)
@@ -49,7 +50,7 @@ function App() {
               <Route 
                 path="hipsters/:id" 
                 element={<HipsterDetails/>}
-              />        
+              />       
                     
           <Route 
             path="new_posting" 
