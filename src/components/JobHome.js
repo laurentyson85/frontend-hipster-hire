@@ -10,12 +10,16 @@ function JobHome({allJobs}) {
     setFilterOption(event.target.value)
   }
 
+  console.log(allJobs)
 
-  const filteredJobs = allJobs.filter((job) => {
+
+  const filteredJobs = allJobs.filter(job => job.open === true).filter((job) => {
     if (filterOption === "All") return true;
 
     return job.expired.toString() === filterOption;
   })
+
+  console.log(filteredJobs)
 
 
 

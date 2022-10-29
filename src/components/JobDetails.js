@@ -1,14 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate} from "react-router-dom"
 
 function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1      
   const { id } = useParams()
+  const navigate = useNavigate()
 
 
-  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan}= allJobs.find(job => job.id === Number(id))
+  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster}= allJobs.find(job => job.id === Number(id))
 
-
+  
   function handleHireClick(){
     onHireHipster(id)
   }
@@ -39,7 +40,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
       }
     })
       updateAllJobs(updatedJobs)
-    });  
+    });
   }
   
   function onDeleteJob(id){
@@ -50,8 +51,9 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
     .then(response => response.json())
     .then(() => {
       const updatedJobs = allJobs.filter((job) => job.id !== Number(id))
-      console.log(updatedJobs)
+      updateAllJobs(updatedJobs)
     })
+    navigate("/jobs")
   }
  
 
@@ -60,7 +62,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           <img src={company_logo_url} alt="company logo" />
           <p><span style={{fontWeight: "bold"}}>Company slogan</span> {company_slogan}</p>
           <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
-          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>          
+          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                 
           {expired?(
             <>
             <p>The position is expired.</p>
@@ -70,7 +72,12 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
                 <>
                 <p>Active job posting</p>
                 <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
-                </>
+                </>            
+          )}
+          {open?(
+            null            
+              ) : (
+                <p>This hipster now has the job! {hipster.name}</p>
             
           )}
        </div>
