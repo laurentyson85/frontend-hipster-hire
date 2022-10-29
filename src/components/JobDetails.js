@@ -69,14 +69,14 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                           
           {(()=> {
                 if (open === false) { 
-                    return (<p>This hipster now has the job! {hipster.name}</p>)
+                    return (<p>This hipster now has the job! {hipster.name}. Head to back to all jobs to hire another hipster</p>)
                 } else {
                     if (expired === true) { 
                         return (
                         <>
                           <p>The position is expired.</p>
                           <button className="expired" onClick={handleDeleteClick}>No longer on the market?</button>
-                          </>
+                        </>
                         )
                 } else {
                     return (

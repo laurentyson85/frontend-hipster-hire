@@ -12,7 +12,7 @@ import JobDetails from './JobDetails';
 
 function App() {
   const [allJobs, setAllJobs] = useState([])
-  const [hipsterCount, setHipsterCount] = useState(10) //to do: update hipsterCount state when new hipster is created  
+  const [hipsterCount, setHipsterCount] = useState(10)
 
   useEffect(() => {
     fetch("http://localhost:9292/jobs")
@@ -34,7 +34,7 @@ function App() {
     setHipsterCount(updatedHipsters.length)
 }
 
- //to do: Make hipster cards, show more button, lots of styling and editing
+ //to do: Add navigation to forms, styling, remove console.logs
 
 
   return (    
