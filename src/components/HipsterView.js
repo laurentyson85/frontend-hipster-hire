@@ -23,8 +23,6 @@ function HipsterView({updateHipsterCount}) {
         <Hipster
         key={hipster.id}
         name={hipster.name}
-        bio={hipster.bio}
-        myCompanies={hipster.my_companies}//remove my companies and change this around based on to do notes
         />
     )
 }) 

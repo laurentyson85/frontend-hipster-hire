@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
-function Hipster({name, bio, myCompanies}) {   
+function Hipster({name}) {   
   return (
     <div>
       <p>{name}</p>
-      <p>{bio}</p>
-      <p>{myCompanies}</p>
+      <img src={image} alt={scientificName} />
     </div>    
   )
 }
