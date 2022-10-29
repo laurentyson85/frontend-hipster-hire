@@ -7,7 +7,6 @@ import JobHome from './JobHome';
 import HipsterView from './HipsterView';
 import JobForm from './JobForm';
 import JobDetails from './JobDetails';
-import HipsterDetails from './HipsterDetails';
 
 
 
@@ -46,12 +45,7 @@ function App() {
         <Routes>        
           <Route 
             path="hipsters" 
-            element={<HipsterView updateHipsterCount={updateHipsterCount}/>}/>
-              <Route 
-                path="hipsters/:id" 
-                element={<HipsterDetails/>}
-              />       
-                    
+            element={<HipsterView updateHipsterCount={updateHipsterCount}/>}/>                    
           <Route 
             path="new_posting" 
             element={<JobForm addNewJob={addNewJob}/>}
