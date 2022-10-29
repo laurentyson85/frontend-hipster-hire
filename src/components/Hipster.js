@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom"
+import mustache from "../images/mustache.png"
 
-function Hipster({name}) {   
+function Hipster({name, id}) {   
   return (
-    <div>
+    <li className="card">
       <p>{name}</p>
-      <img src={image} alt={scientificName} />
-    </div>    
+      <img slassName ="mustacheImage" src={mustache} alt="hipster mustache"/>
+      <Link className="biolink" to={`/hipsters/${id}`}>Read bio</Link>    
+      </li>    
   )
 }
 

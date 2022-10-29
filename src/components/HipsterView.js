@@ -23,6 +23,7 @@ function HipsterView({updateHipsterCount}) {
         <Hipster
         key={hipster.id}
         name={hipster.name}
+        id={hipster.id}
         />
     )
 }) 
