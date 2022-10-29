@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom"
 
-function HipsterDetails() {
+function HipsterDetails({allHipsters}) {
     return (
       <div>Hipster details</div>
       
