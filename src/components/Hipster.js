@@ -2,6 +2,8 @@ import React from "react";
 import mustache from "../images/mustache.png"
 
 function Hipster({name, bio, jobs}) {
+
+  const hipsterBio = bio.replace(/[",]/g, ' ').replace("[", "''").replace("]", "''")
   
   const hipsterJobs = jobs.map(job =>
     <ul key={job.id}>
@@ -9,19 +11,18 @@ function Hipster({name, bio, jobs}) {
       <li>{job.position}</li>
       <li>{job.employment}</li>
       <li>{job.company_name}</li>
-    </ul>
-    
-    )
+    </ul>    
+  )
 
   return (
     <div className="card">
       <p>{name}</p>
       <img className ="mustacheImage" src={mustache} alt="hipster mustache"/>
-      <p>{bio}</p>
+      <p>{hipsterBio}</p>
       <div className="hipsterjobs">
         {hipsterJobs}
       </div>
-      </div>    
+    </div>    
   )
 }
 
