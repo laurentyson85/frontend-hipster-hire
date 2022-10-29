@@ -29,9 +29,6 @@ function HipsterView({updateHipsterCount}) {
     )
 }) 
 
-
-
-
   return (
     <div>{myHipsters}
     <HipsterForm addNewHipster={addNewHipster}/>
