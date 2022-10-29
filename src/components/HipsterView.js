@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Hipster from './Hipster';
 import HipsterForm from './HipsterForm';
+import BackButton from './BackButton';
+import NextButton from './NextButton';
 
 function HipsterView({updateHipsterCount}) {
   const [allHipsters, setAllHipsters] = useState([])
@@ -34,8 +36,11 @@ function HipsterView({updateHipsterCount}) {
 }) 
 
   return (
-    <div>{myHipsters}
-    <HipsterForm addNewHipster={addNewHipster}/>
+    <div>
+      <BackButton />
+      {myHipsters}
+      <NextButton />
+      <HipsterForm addNewHipster={addNewHipster}/>    
     </div>
     
     
