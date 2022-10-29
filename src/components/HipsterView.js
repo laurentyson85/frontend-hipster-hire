@@ -7,7 +7,7 @@ import NextButton from './NextButton';
 function HipsterView({updateHipsterCount}) {
   const [allHipsters, setAllHipsters] = useState([])
   const [hipsterPosition, setHipsterPosition] = useState(0)
-  const displayCount = 1
+  const displayCount = 1  
 
   useEffect(() => {
     fetch("http://localhost:9292/hipsters")
@@ -29,14 +29,6 @@ function HipsterView({updateHipsterCount}) {
     setHipsterPosition((hipsterPosition - displayCount)% allHipsters.length)
   }
 
-
-
-
-
-
-
-
-
   const myHipsters = allHipsters.slice(hipsterPosition, hipsterPosition + displayCount).map(hipster => {
     return(
         <Hipster
@@ -50,9 +42,9 @@ function HipsterView({updateHipsterCount}) {
 
   return (
     <div>
-      <BackButton handleBack={handleBack}/>
+      <BackButton handleBack={handleBack} hipsterPosition={hipsterPosition}/>
       {myHipsters}
-      <NextButton handleNext={handleNext} />
+      <NextButton handleNext={handleNext} hipsterPosition={hipsterPosition} allHipsters={allHipsters} />
       <HipsterForm addNewHipster={addNewHipster}/>    
     </div>
     
