@@ -4,6 +4,10 @@ import HipsterForm from './HipsterForm';
 
 function HipsterView({updateHipsterCount}) {
   const [allHipsters, setAllHipsters] = useState([])
+  const [hipsterPosition, setHipsterPosition] = useState(0)
+
+
+
 
   useEffect(() => {
     fetch("http://localhost:9292/hipsters")
