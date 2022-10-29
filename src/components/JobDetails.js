@@ -62,16 +62,15 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
           <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>          
           {expired?(
-                     <>
-                     <p>Active job posting</p>
-                     <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
-                     </>   
-              ) : (
-                <>
+            <>
             <p>The position is expired.</p>
             <button className="expired" onClick={handleDeleteClick}>No longer on the market?</button>
-            </>
-                
+            </>            
+              ) : (
+                <>
+                <p>Active job posting</p>
+                <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
+                </>
             
           )}
        </div>
