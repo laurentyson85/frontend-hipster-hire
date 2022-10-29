@@ -6,8 +6,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
   const { id } = useParams()
 
 
-  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster
-      } = allJobs.find(job => job.id === Number(id))
+  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan}= allJobs.find(job => job.id === Number(id))
 
 
   function handleHireClick(){
@@ -54,8 +53,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
       console.log(updatedJobs)
     })
   }
-  
-
+ 
 
   return (
       <div className="jobDetails">                   
@@ -64,19 +62,18 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
           <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>          
           {expired?(
-            <>
+                     <>
+                     <p>Active job posting</p>
+                     <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
+                     </>   
+              ) : (
+                <>
             <p>The position is expired.</p>
             <button className="expired" onClick={handleDeleteClick}>No longer on the market?</button>
-            </>            
-              ) : (
-            <p>Active job posting</p>
+            </>
+                
+            
           )}
-          {open? (
-            <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
-                  ) : (
-            <p>This hipster already has the job: {hipster.name} their bio: {hipster.bio}</p>
-          )}
-         
        </div>
       )
    } 
