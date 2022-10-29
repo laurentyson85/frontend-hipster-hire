@@ -55,6 +55,10 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
     })
     navigate("/jobs")
   }
+
+
+  
+  
  
 
   return (
@@ -62,27 +66,35 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
           <img src={company_logo_url} alt="company logo" />
           <p><span style={{fontWeight: "bold"}}>Company slogan</span> {company_slogan}</p>
           <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
-          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                 
-          {expired?(
-            <>
-            <p>The position is expired.</p>
-            <button className="expired" onClick={handleDeleteClick}>No longer on the market?</button>
-            </>            
-              ) : (
-                <>
-                <p>Active job posting</p>
-                <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
-                </>            
-          )}
-          {open?(
-            null            
-              ) : (
-                <p>This hipster now has the job! {hipster.name}</p>
-            
-          )}
+          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                           
+          {(()=> {
+                if (open === false) { 
+                    return (<p>This hipster now has the job! {hipster.name}</p>)
+                } else {
+                    if (expired === true) { 
+                        return (
+                        <>
+                          <p>The position is expired.</p>
+                          <button className="expired" onClick={handleDeleteClick}>No longer on the market?</button>
+                          </>
+                        )
+                } else {
+                    return (
+                    <>
+                      <p>Active job posting</p>
+                      <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
+                    </>
+                    ) 
+                  }
+                }  
+              })
+            ()
+          }
        </div>
       )
    } 
 
 export default JobDetails;
+
+
 
