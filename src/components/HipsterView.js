@@ -8,9 +8,6 @@ function HipsterView({updateHipsterCount}) {
   const [allHipsters, setAllHipsters] = useState([])
   const [hipsterPosition, setHipsterPosition] = useState(0)
 
-
-
-
   useEffect(() => {
     fetch("http://localhost:9292/hipsters")
     .then(response => response.json())
@@ -22,6 +19,21 @@ function HipsterView({updateHipsterCount}) {
     setAllHipsters(updatedHipsters)
     updateHipsterCount(updatedHipsters)
   }
+
+  function handleNext(){
+    setHipsterPosition((hipsterPosition + 1)% allHipsters.length)
+  }
+
+  function handleBack(){
+    setHipsterPosition((hipsterPosition - 1)% allHipsters.length) //I think I need 0 here
+  }
+
+
+
+
+
+
+
 
 
   const myHipsters = allHipsters.map(hipster => {
@@ -37,9 +49,9 @@ function HipsterView({updateHipsterCount}) {
 
   return (
     <div>
-      <BackButton />
+      <BackButton handleBack={handleBack}/>
       {myHipsters}
-      <NextButton />
+      <NextButton handleNext={handleNext} />
       <HipsterForm addNewHipster={addNewHipster}/>    
     </div>
     
