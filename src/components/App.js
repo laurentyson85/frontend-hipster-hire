@@ -34,8 +34,7 @@ function App() {
     setHipsterCount(updatedHipsters.length)
 }
 
- //to do: welcome page. Make hipster cards with the names and icons (edit the hipster component for this), show more button, styling. for backend change seed file, and my local db, so there's no expired active jobs, and update controller so no jobs are open (it may be like that already so double check)
-
+ //to do: Make hipster cards, show more button, lots of styling and editing
 
 
   return (    
