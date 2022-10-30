@@ -34,7 +34,7 @@ function App() {
     setHipsterCount(updatedHipsters.length)
 }
 
- //to do: Add navigation throughout, think about adding a link for people to go back to all jobs after they hire a hipster, styling, remove console.logs, test all routes in app, double check restfulness
+ //to do: think about adding a link for people to go back to all jobs after they hire a hipster, styling, remove console.logs, test all routes in app, double check restfulness
 
 
   return (    
