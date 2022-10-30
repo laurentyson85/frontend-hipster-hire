@@ -15,17 +15,20 @@ function App() {
   const [allHipsters, setAllHipsters] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/hire_data")
+    fetch("http://localhost:9292/jobs")
     .then(response => response.json())
-    .then(data =>{
-      setAllHipsters(data.hipsters)
-      setAllJobs(data.jobs)
-    })
-      
-  }, [allJobs])  
+    .then(data => setAllJobs(data))
+  }, [])
 
+  useEffect(() => {
+    fetch("http://localhost:9292/hipsters")
+    .then(response => response.json())
+    .then(data => setAllHipsters(data))
+    }, [allJobs])
+  
+ 
   function addNewHipster(newHipster){  
-    const updatedHipsters = [newHipster, ...allHipsters]
+    const updatedHipsters = [...allHipsters, newHipster]
     setAllHipsters(updatedHipsters)
   }
 
@@ -40,7 +43,7 @@ function App() {
 
 
 
- //to do: think about adding a link for people to go back to all jobs after they hire a hipster, styling, remove console.logs, test all routes in app, double check restfulness
+ //to do: styling, remove console.logs, test all routes in app, double check restfulness
 
 
   return (    
