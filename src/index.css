@@ -74,5 +74,24 @@ div {
   text-align: center
 }
 
+.filter {
+  width: 700px;
+}
+
+.card {
+  text-align: center;
+  border-radius: 25px;
+  margin: 1rem;
+  background-color: #ffff;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.belt {
+  grid-area: bt;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 
