@@ -59,8 +59,14 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+button {
+  transition-duration: 0.4s;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #116600;
+  color: white;
 }
 
 div {
