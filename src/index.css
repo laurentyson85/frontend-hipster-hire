@@ -59,6 +59,11 @@ button:hover {
   color: white;
 }
 
+.navigateButtons {
+  height: 30px;
+  display: inline-block;
+}
+
 div {
   border-radius: 5px;
   padding: 20px;
