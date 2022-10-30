@@ -4,10 +4,10 @@ import { Link } from "react-router-dom"
 function JobListing({title, employment, companyName, id}) {
 
   return (
-    <li className="Job listing">
-       <p><span style={{fontWeight: "bold"}}>Title:</span> {title}</p>
-      <span className="employment">{employment} position at </span>
-      <span className="company">{companyName} </span>
+    <li className="jobListing">
+      <p><span style={{fontWeight: "bold"}}>Title:</span> {title}</p>
+      <span>{employment} position at </span>
+      <span>{companyName} </span>
       <Link className="detailsLink" to={`/jobs/${id}`}>View Details</Link>
     </li>
     

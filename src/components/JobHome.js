@@ -31,7 +31,7 @@ function JobHome({allJobs}) {
   return (
     <div>
       <Filter handleFilter={handleFilter}/>
-      <ul className="cards">{myJobs}</ul>      
+      <ul className="listings">{myJobs}</ul>      
     </div>
     
     
