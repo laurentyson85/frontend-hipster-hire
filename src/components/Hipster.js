@@ -11,7 +11,6 @@ function Hipster({name, bio, jobs}) {
         <li>{job.title} at {job.company_name}. Position: {job.position}.  Employment: {job.employment}.</li>      
       </ul>    
     )
-
     return (
       <div className="card">
         <p>{name}</p>
@@ -28,7 +27,8 @@ function Hipster({name, bio, jobs}) {
       <div className="card">
         <p>{name}</p>
         <img className ="mustacheImage" src={mustache} alt="hipster mustache"/>
-        <p>My Bio: {hipsterBio}</p>        
+        <p>My Bio: {hipsterBio}</p>
+        <p>My Jobs: I'm new and ready to work!</p>        
       </div>    
     )
   }  

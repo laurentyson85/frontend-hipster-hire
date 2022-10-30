@@ -32,7 +32,6 @@ function HipsterForm({addNewHipster}) {
       name: "",
       bio: "",
     })
-    navigate("/jobs")
   }
   return (
     <div className="createHipster">

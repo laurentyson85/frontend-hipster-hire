@@ -16,7 +16,7 @@ function HipsterView({updateHipsterCount}) {
   }, [])
 
   function addNewHipster(newHipster){  
-    const updatedHipsters = [...allHipsters, newHipster]
+    const updatedHipsters = [newHipster, ...allHipsters]
     setAllHipsters(updatedHipsters)
     updateHipsterCount(updatedHipsters)
   }
