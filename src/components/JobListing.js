@@ -8,6 +8,7 @@ function JobListing({title, employment, companyName, id}) {
       <p><span style={{fontWeight: "bold"}}>Title:</span> {title}</p>
       <span>{employment} position at </span>
       <span>{companyName} </span>
+      <br></br>
       <Link className="detailsLink" to={`/jobs/${id}`}>View Details</Link>
     </li>
     
