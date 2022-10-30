@@ -12,14 +12,27 @@ import JobDetails from './JobDetails';
 
 function App() {
   const [allJobs, setAllJobs] = useState([])
-  const [hipsterCount, setHipsterCount] = useState(10)
+  const [allHipsters, setAllHipsters] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/jobs")
+    fetch("http://localhost:9292/hire_data")
     .then(response => response.json())
-    .then(data => setAllJobs(data))
+    .then(data =>{
+      console.log(data)
+      setAllHipsters(data.hipsters)
+      setAllJobs(data.jobs)
+    }) 
+      
   }, [])
+
+  console.log(allJobs)
+  console.log(allHipsters)
   
+
+  function addNewHipster(newHipster){  
+    const updatedHipsters = [newHipster, ...allHipsters]
+    setAllHipsters(updatedHipsters)
+  }
 
   function updateAllJobs(updatedJobs){
     setAllJobs(updatedJobs)
@@ -30,9 +43,7 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
-  function updateHipsterCount(updatedHipsters){ 
-    setHipsterCount(updatedHipsters.length)
-}
+
 
  //to do: think about adding a link for people to go back to all jobs after they hire a hipster, styling, remove console.logs, test all routes in app, double check restfulness
 
@@ -44,7 +55,7 @@ function App() {
         <Routes>        
           <Route 
             path="hipsters" 
-            element={<HipsterView updateHipsterCount={updateHipsterCount}/>}/>                    
+            element={<HipsterView allHipsters={allHipsters} addNewHipster={addNewHipster}/>}/>                    
           <Route 
             path="new_posting" 
             element={<JobForm addNewJob={addNewJob}/>}
@@ -54,7 +65,7 @@ function App() {
             element={<JobHome allJobs={allJobs} />}/>
               <Route 
                 path="jobs/:id" 
-                element={<JobDetails allJobs={allJobs} hipsterCount={hipsterCount} updateAllJobs={updateAllJobs} />}
+                element={<JobDetails allJobs={allJobs} allHipsters={allHipsters} updateAllJobs={updateAllJobs} />}
               />            
             <Route 
               path="/*" 

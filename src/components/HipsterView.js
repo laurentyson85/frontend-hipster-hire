@@ -4,30 +4,9 @@ import HipsterForm from './HipsterForm';
 import BackButton from './BackButton';
 import NextButton from './NextButton';
 
-function HipsterView({updateHipsterCount}) {
-  const [allHipsters, setAllHipsters] = useState([])
+function HipsterView({addNewHipster, allHipsters}) {  
   const [hipsterPosition, setHipsterPosition] = useState(0)
-  const displayCount = 1  
-
-  const ids = allHipsters.map(hipster => hipster.id)
-
-  const newId =ids[Math.floor(Math.random()*ids.length)]
-
-  console.log(newId)
-
-  
-
-  useEffect(() => {
-    fetch("http://localhost:9292/hipsters")
-    .then(response => response.json())
-    .then(data => setAllHipsters(data))
-  }, [])
-
-  function addNewHipster(newHipster){  
-    const updatedHipsters = [newHipster, ...allHipsters]
-    setAllHipsters(updatedHipsters)
-    updateHipsterCount(updatedHipsters)
-  }
+  const displayCount = 1    
 
   function handleNext(){
     setHipsterPosition((hipsterPosition + displayCount)% allHipsters.length)
@@ -55,7 +34,6 @@ function HipsterView({updateHipsterCount}) {
       <NextButton handleNext={handleNext} hipsterPosition={hipsterPosition} allHipsters={allHipsters} />
       <HipsterForm addNewHipster={addNewHipster}/>    
     </div>
-    
     
   )
 }

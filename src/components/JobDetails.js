@@ -1,8 +1,10 @@
 import React from "react";
 import { useParams, useNavigate} from "react-router-dom"
 
-function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
-  const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1      
+function JobDetails({allJobs, updateAllJobs, allHipsters}) { 
+  const hipsterIds = allHipsters.map(hipster => hipster.id)
+  const randomHipsterId =hipsterIds[Math.floor(Math.random()*hipsterIds.length)]
+  
   const { id } = useParams()
   const navigate = useNavigate()
 
@@ -26,7 +28,7 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
         "Content-Type": "application/json",
     }, 
     body: JSON.stringify({      
-        "hipster_id": `${hiredHipster}`,
+        "hipster_id": `${randomHipsterId}`,
         "open": false
     }),
   })
