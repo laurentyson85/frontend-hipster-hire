@@ -28,7 +28,7 @@ function App() {
   
  
   function addNewHipster(newHipster){  
-    const updatedHipsters = [...allHipsters, newHipster]
+    const updatedHipsters = [newHipster, ...allHipsters]
     setAllHipsters(updatedHipsters)
   }
 
