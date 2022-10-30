@@ -10,30 +10,23 @@ function JobHome({allJobs}) {
     setFilterOption(event.target.value)
   }
 
-  console.log(allJobs)
-
-
   const filteredJobs = allJobs.filter(job => job.open === true).filter((job) => {
     if (filterOption === "All") return true;
 
     return job.expired.toString() === filterOption;
   })
 
-  console.log(filteredJobs)
-
-
-
-const myJobs = filteredJobs.map(job => {
-    return(
-        <JobListing
-        key={job.id}
-        id={job.id}
-        title={job.title}
-        employment={job.employment}
-        companyName={job.company_name}
-        />
-    )
-})
+  const myJobs = filteredJobs.map(job => {
+      return(
+          <JobListing
+          key={job.id}
+          id={job.id}
+          title={job.title}
+          employment={job.employment}
+          companyName={job.company_name}
+          />
+      )
+  })
 
   return (
     <div>

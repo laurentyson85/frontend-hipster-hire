@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 function JobForm({addNewJob}) {
+  const navigate = useNavigate()
   const [jobData, setJobData] = useState({
     title: "",
     position: "",
@@ -39,7 +41,7 @@ function JobForm({addNewJob}) {
       employment: "",
       companyName: "",
     })
-    // history.push("/jobs")
+    navigate("/jobs")
   }
   return (
     <div className="createJob">
