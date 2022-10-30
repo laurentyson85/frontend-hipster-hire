@@ -15,9 +15,9 @@ function Hipster({name, bio, jobs}) {
       <div className="card">
         <p>{name}</p>
         <img className ="mustacheImage" src={mustache} alt="hipster mustache"/>
-        <p>My Bio: {hipsterBio}</p>
+        <p><span style={{fontWeight: "bold"}}>My Bio:</span> {hipsterBio}</p>
         <div className="hipsterjobs">
-        <p>My Jobs:</p>
+        <p><span style={{fontWeight: "bold"}}>My Jobs:</span></p>
           {hipsterJobs}
         </div>
       </div>    
@@ -27,8 +27,8 @@ function Hipster({name, bio, jobs}) {
       <div className="card">
         <p>{name}</p>
         <img className ="mustacheImage" src={mustache} alt="hipster mustache"/>
-        <p>My Bio: {hipsterBio}</p>
-        <p>My Jobs: I'm new and ready to work!</p>        
+        <p><span style={{fontWeight: "bold"}}>My Bio:</span> {hipsterBio}</p>
+        <p><span style={{fontWeight: "bold"}}>My Jobs: I'm new and ready to work!</span></p>
       </div>    
     )
   }  
