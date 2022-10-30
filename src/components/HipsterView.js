@@ -9,6 +9,14 @@ function HipsterView({updateHipsterCount}) {
   const [hipsterPosition, setHipsterPosition] = useState(0)
   const displayCount = 1  
 
+  const ids = allHipsters.map(hipster => hipster.id)
+
+  const newId =ids[Math.floor(Math.random()*ids.length)]
+
+  console.log(newId)
+
+  
+
   useEffect(() => {
     fetch("http://localhost:9292/hipsters")
     .then(response => response.json())

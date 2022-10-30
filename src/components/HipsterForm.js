@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"
 
 function HipsterForm({addNewHipster}) {
-  const navigate = useNavigate()
   const [newHipsterData, setnewHipsterData] = useState({
     name: "",
     bio: "",
