@@ -18,16 +18,11 @@ function App() {
     fetch("http://localhost:9292/hire_data")
     .then(response => response.json())
     .then(data =>{
-      console.log(data)
       setAllHipsters(data.hipsters)
       setAllJobs(data.jobs)
-    }) 
+    })
       
-  }, [])
-
-  console.log(allJobs)
-  console.log(allHipsters)
-  
+  }, [allJobs])  
 
   function addNewHipster(newHipster){  
     const updatedHipsters = [newHipster, ...allHipsters]

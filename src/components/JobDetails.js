@@ -3,7 +3,7 @@ import { useParams, useNavigate} from "react-router-dom"
 
 function JobDetails({allJobs, updateAllJobs, allHipsters}) { 
   const hipsterIds = allHipsters.map(hipster => hipster.id)
-  const randomHipsterId =hipsterIds[Math.floor(Math.random()*hipsterIds.length)]
+  const randomHipsterId = hipsterIds[Math.floor(Math.random()*hipsterIds.length)]
   
   const { id } = useParams()
   const navigate = useNavigate()
