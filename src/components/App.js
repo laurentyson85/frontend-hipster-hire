@@ -41,11 +41,6 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
-
-
- //to do: styling, remove console.logs, test all routes in app, double check restfulness
-
-
   return (    
       <div>
         <Header />
