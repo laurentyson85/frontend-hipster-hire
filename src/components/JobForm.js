@@ -56,7 +56,7 @@ function JobForm({addNewJob}) {
             <input type="text" name="position" value={jobData.position} onChange={handleForm} />
         </label>
         <label>
-            What's the key skill?:
+            What's the key skill?
             <input type="text" name="keySkill" value={jobData.keySkill} onChange={handleForm}/>
         </label>
         <label>

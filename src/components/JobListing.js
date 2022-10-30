@@ -5,9 +5,9 @@ function JobListing({title, employment, companyName, id}) {
 
   return (
     <li className="Job listing">
-      <span>{title}</span>
-      <span className="employment">{employment}</span>
-      <span className="company">Company: {companyName}</span>
+       <p><span style={{fontWeight: "bold"}}>Title:</span> {title}</p>
+      <span className="employment">{employment} position at </span>
+      <span className="company">{companyName} </span>
       <Link className="detailsLink" to={`/jobs/${id}`}>View Details</Link>
     </li>
     
