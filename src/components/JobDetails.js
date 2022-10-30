@@ -56,11 +56,7 @@ function JobDetails({allJobs, updateAllJobs, allHipsters}) {
       updateAllJobs(updatedJobs)
     })
     navigate("/jobs")
-  }
-
-
-  
-  
+  }  
  
 
   return (
