@@ -33,10 +33,10 @@ function HipsterForm({addNewHipster}) {
   }
   return (
     <div className="createHipster">
-      <h2>Join us, hipsters!</h2>
+      <h2>Join us!</h2>
       <form onSubmit={handleSubmit}>
         <label>
-            What's your name, hipster?:
+            What's your name, hipster?
             <input type="text" name="name" value={newHipsterData.name} onChange={handleForm}/>
         </label>
         <label>

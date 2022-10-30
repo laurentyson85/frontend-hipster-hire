@@ -87,8 +87,7 @@ div {
   height: 2rem;
 }
 
-.card {
-  text-align: center;
+.card {  
   border-radius: 25px;
   margin: 1rem;
   background-color: #ffff;

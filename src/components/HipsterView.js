@@ -29,14 +29,15 @@ function HipsterView({addNewHipster, allHipsters}) {
 
   return (
     <>
-    <div>      
-      <HipsterForm addNewHipster={addNewHipster}/>
-    </div> 
+    <h2>Check out the crew! 🤘</h2>
     <div className="belt">
       <BackButton handleBack={handleBack} hipsterPosition={hipsterPosition}/>
       {myHipsters}
       <NextButton handleNext={handleNext} hipsterPosition={hipsterPosition} allHipsters={allHipsters} />
     </div>
+    <div>      
+      <HipsterForm addNewHipster={addNewHipster}/>
+    </div>    
     </> 
   )
 }
