@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useNavigate} from "react-router-dom"
 
-function JobDetails({allJobs, updateAllJobs, allHipsters}) { 
+function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) { 
   const hipsterIds = allHipsters.map(hipster => hipster.id)
   const randomHipsterId = hipsterIds[Math.floor(Math.random()*hipsterIds.length)]
   
@@ -34,16 +34,8 @@ function JobDetails({allJobs, updateAllJobs, allHipsters}) {
   })
   .then((response) => response.json())
   .then((data) => {
-    console.log(data.hipster)
-    console.log(data.job)
-    // const updatedJobs = allJobs.map((job) => {
-    //   if (job.id === Number(id)){
-    //     return data
-    //   } else {
-    //     return job
-    //   }
-    // })
-    //   updateAllJobs(updatedJobs)
+    updateAllHipsters(data.hipster)
+    updateAllJobs(data.job)
     });
   }
   

@@ -21,22 +21,41 @@ function App() {
       setAllJobs(data.jobs)
       setAllHipsters(data.hipsters)
     })
-  }, [])
-  
+  }, [])  
  
   function addNewHipster(newHipster){  
     const updatedHipsters = [newHipster, ...allHipsters]
     setAllHipsters(updatedHipsters)
   }
 
-  function updateAllJobs(updatedJobs){
-    setAllJobs(updatedJobs)
-  }
-
   function addNewJob(newJob){  
     const updatedJobs = [...allJobs, newJob]
     setAllJobs(updatedJobs)
   }
+
+  function updateAllJobs(jobData){
+    console.log(jobData)
+    const updatedJobs = allJobs.map((job) => {
+      if (job.id === jobData.id){
+        return jobData
+      } else {
+        return job
+      }
+    })
+    setAllJobs(updatedJobs)
+  }
+
+  function updateAllHipsters(hipsterData){
+    console.log(hipsterData)
+    const updatedHipsters = allHipsters.map((hipster) => {
+      if (hipster.id === hipsterData.id){
+        return hipsterData
+      } else {
+        return hipster
+      }
+    })
+    setAllHipsters(updatedHipsters)
+  }  
 
   return (    
       <div>
@@ -55,7 +74,7 @@ function App() {
             element={<JobHome allJobs={allJobs} />}/>
               <Route 
                 path="jobs/:id" 
-                element={<JobDetails allJobs={allJobs} allHipsters={allHipsters} updateAllJobs={updateAllJobs} />}
+                element={<JobDetails allJobs={allJobs} allHipsters={allHipsters} updateAllHipsters={updateAllHipsters} updateAllJobs={updateAllJobs} />}
               />            
             <Route 
               path="/*" 
