@@ -34,14 +34,16 @@ function JobDetails({allJobs, updateAllJobs, allHipsters}) {
   })
   .then((response) => response.json())
   .then((data) => {
-    const updatedJobs = allJobs.map((job) => {
-      if (job.id === Number(id)){
-        return data
-      } else {
-        return job
-      }
-    })
-      updateAllJobs(updatedJobs)
+    console.log(data.hipster)
+    console.log(data.job)
+    // const updatedJobs = allJobs.map((job) => {
+    //   if (job.id === Number(id)){
+    //     return data
+    //   } else {
+    //     return job
+    //   }
+    // })
+    //   updateAllJobs(updatedJobs)
     });
   }
   

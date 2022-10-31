@@ -15,16 +15,13 @@ function App() {
   const [allHipsters, setAllHipsters] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/jobs")
+    fetch("http://localhost:9292/hire_data")
     .then(response => response.json())
-    .then(data => setAllJobs(data))
+    .then(data => {
+      setAllJobs(data.jobs)
+      setAllHipsters(data.hipsters)
+    })
   }, [])
-
-  useEffect(() => {
-    fetch("http://localhost:9292/hipsters")
-    .then(response => response.json())
-    .then(data => setAllHipsters(data))
-    }, [allJobs])
   
  
   function addNewHipster(newHipster){  
