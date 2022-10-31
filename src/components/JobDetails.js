@@ -1,17 +1,17 @@
 import React from "react";
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate} from "react-router-dom"
 
-function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
-  const hiredHipster = Math.floor(Math.random() * `${hipsterCount}`) + 1      
+function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) { 
+  const hipsterIds = allHipsters.map(hipster => hipster.id)
+  const randomHipsterId = hipsterIds[Math.floor(Math.random()*hipsterIds.length)]
+  
   const { id } = useParams()
-  const {title, field, position, key_skill, open, expired, employment, company: {
-          logo_url,
-          hired_hipsters,
-          name,
-          slogan
-        }
-      } = allJobs.find(job => job.id === Number(id))
+  const navigate = useNavigate()
 
+
+  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster}= allJobs.find(job => job.id === Number(id))
+
+  
   function handleHireClick(){
     onHireHipster(id)
   }
@@ -22,66 +22,71 @@ function JobDetails({allJobs, updateAllJobs, hipsterCount}) {
 
 
   function onHireHipster(id){
-    console.log(id)
     fetch(`http://localhost:9292/jobs/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
     }, 
     body: JSON.stringify({      
-        "hipster_id": `${hiredHipster}`,
+        "hipster_id": `${randomHipsterId}`,
         "open": false
     }),
   })
   .then((response) => response.json())
   .then((data) => {
-    const updatedJobs = allJobs.map((job) => {
-      if (job.id === Number(id)){
-        return data
-      } else {
-        return job
-      }
-    })
-      updateAllJobs(updatedJobs)
-    });  
+    updateAllHipsters(data.hipster)
+    updateAllJobs(data.job)
+    });
   }
   
   function onDeleteJob(id){
     console.log(id)
-    // fetch(`http://localhost:9292/jobs/${id}`,{
-    //   method: "DELETE",
-    // })
-    // .then(response => response.json())
-    // .then(() => {
+    fetch(`http://localhost:9292/jobs/${id}`,{
+      method: "DELETE",
+    })
+    .then(response => response.json())
+    .then(() => {
       const updatedJobs = allJobs.filter((job) => job.id !== Number(id))
-      console.log(updatedJobs)
-    // })
-  }
-  
-
+      updateAllJobs(updatedJobs)
+    })
+    navigate("/jobs")
+  }  
+ 
 
   return (
       <div className="jobDetails">                   
-          <img src={logo_url} alt="company logo" />
-          <h3>{name}</h3>
-          <p>{hired_hipsters}</p> 
-          <p><span style={{fontWeight: "bold"}}>Company slogan</span> {slogan}</p>
-          <p>We're hiring a {title}. This {field} {position} is skilled in: {key_skill}</p>
-          {expired? (
-              <p>The position is expired. We weren't able to hire a hipster in time. Delete it</p>
-                  ) : (
-              <p>Active job posting</p>
-          )}        
-          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>
-          {open && !expired?(
-            <button className="open job" onClick={handleHireClick}>Hire a Hipster</button>
-                  ) : (
-            <button className="expired" onClick={handleDeleteClick}>Need to delete? Click here</button>
-          )}
-         
+          <img src={company_logo_url} alt="company logo" />
+          <p><span style={{fontWeight: "bold"}}>Company slogan</span> {company_slogan}</p>
+          <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
+          <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                           
+          {(()=> {
+                if (open === false) { 
+                    return (<p>The hipster, {hipster.name}, now has the job! Head to back to All Jobs to hire another hipster 🤘</p>)
+                } else {
+                    if (expired === true) { 
+                        return (
+                        <>
+                          <p>The position is expired.</p>
+                          <button className="expired" onClick={handleDeleteClick}>No longer on the market? Remove it</button>
+                        </>
+                        )
+                } else {
+                    return (
+                    <>
+                      <p>Active job posting</p>
+                      <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
+                    </>
+                    ) 
+                  }
+                }  
+              })
+            ()
+          }
        </div>
       )
    } 
 
 export default JobDetails;
+
+
 

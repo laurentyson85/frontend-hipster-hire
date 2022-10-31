@@ -10,9 +10,18 @@ let activeStyle = {
 function Nav() {
   return (
     <div className="navBar">
-        <nav>        
+        <nav>
         <NavLink
             to="/"
+            end
+            style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+          >
+            Home
+          </NavLink>        
+        <NavLink
+            to="jobs"
             end
             style={({ isActive }) =>
               isActive ? activeStyle : undefined

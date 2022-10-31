@@ -1,33 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import Hipster from './Hipster';
+import HipsterForm from './HipsterForm';
+import BackButton from './BackButton';
+import NextButton from './NextButton';
 
-function HipsterView() {
-  const [allHipsters, setAllHipsters] = useState([])
+function HipsterView({addNewHipster, allHipsters}) {  
+  const [hipsterPosition, setHipsterPosition] = useState(0)
+  const displayCount = 1    
 
-  useEffect(() => {
-    fetch("http://localhost:9292/hipsters")
-    .then(response => response.json())
-    .then(data => setAllHipsters(data))
-  }, [])
+  function handleNext(){
+    setHipsterPosition((hipsterPosition + displayCount)% allHipsters.length)
+  }
 
+  function handleBack(){
+    setHipsterPosition((hipsterPosition - displayCount)% allHipsters.length)
+  }
 
-  const myHipsters = allHipsters.map(hipster => {
+  const myHipsters = allHipsters.slice(hipsterPosition, hipsterPosition + displayCount).map(hipster => {
     return(
         <Hipster
         key={hipster.id}
         name={hipster.name}
         bio={hipster.bio}
-        myCompanies={hipster.my_companies}
+        jobs={hipster.jobs}
         />
     )
 }) 
 
-
-
-
   return (
-    <div>{myHipsters}</div>
-    
+    <>
+    <h2>Check out the crew! 🤘</h2>
+    <div className="belt">
+      <BackButton handleBack={handleBack} hipsterPosition={hipsterPosition}/>
+      {myHipsters}
+      <NextButton handleNext={handleNext} hipsterPosition={hipsterPosition} allHipsters={allHipsters} />
+    </div>
+    <div>      
+      <HipsterForm addNewHipster={addNewHipster}/>
+    </div>    
+    </> 
   )
 }
 
