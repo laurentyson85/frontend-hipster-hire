@@ -18,7 +18,7 @@ function App() {
     fetch("http://localhost:9292/hire_data")
     .then(response => response.json())
     .then(data => {
-      setAllJobs(data.jobs)
+      setAllJobs(data.jobs) //update this in controller to just grab open jobs
       setAllHipsters(data.hipsters)
     })
   }, [])  
@@ -33,8 +33,8 @@ function App() {
     setAllJobs(updatedJobs)
   }
 
+  //instead of adding filter out the job from the array
   function updateAllJobs(jobData){
-    console.log(jobData)
     const updatedJobs = allJobs.map((job) => {
       if (job.id === jobData.id){
         return jobData
@@ -46,14 +46,13 @@ function App() {
   }
 
   function updateAllHipsters(hipsterData){
-    console.log(hipsterData)
     const updatedHipsters = allHipsters.map((hipster) => {
       if (hipster.id === hipsterData.id){
         return hipsterData
       } else {
         return hipster
       }
-    })
+    }) //filter out the hipster,then add back to the front of the array, then set all hipsters. Hve the patch route someone to hipster View
     setAllHipsters(updatedHipsters)
   }  
 
