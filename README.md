@@ -1,5 +1,6 @@
 # Hipster Hire
-![hipster hire gif](https://i.makeagif.com/media/11-01-2022/LOLAoc.gif)
+![Hipster_Hire](https://user-images.githubusercontent.com/102639873/199345779-5b8ead1b-b1c3-4ca4-a545-d0fc40f0182f.gif)
+
 
 ## Description
 Welcome to Hipster Hire. The fun job app that allows you to post a job and hire a hipster. 
