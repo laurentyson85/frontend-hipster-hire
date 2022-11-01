@@ -9,7 +9,7 @@ function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) {
   const navigate = useNavigate()
 
 
-  const {title, position, key_skill, open, expired, employment, company_logo_url, company_name, company_slogan, hipster}= allJobs.find(job => job.id === Number(id))
+  const {title, position, key_skill, expired, employment, company_logo_url, company_name, company_slogan}= allJobs.find(job => job.id === Number(id))
 
   
   function handleHireClick(){
@@ -37,6 +37,7 @@ function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) {
     updateAllHipsters(data.hipster)
     updateAllJobs(data.job)
     });
+    navigate("/hipsters")
   }
   
   function onDeleteJob(id){
@@ -61,28 +62,16 @@ function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) {
           <p><span style={{fontWeight: "bold"}}>Company slogan</span> {company_slogan}</p>
           <p>{company_name} is hiring a {title}. This {position} is skilled in: {key_skill}</p>
           <p><span style={{fontWeight: "bold"}}>Employment Type</span> {employment}</p>                           
-          {(()=> {
-                if (open === false) { 
-                    return (<p>The hipster, {hipster.name}, now has the job! Head to back to All Jobs to hire another hipster 🤘</p>)
-                } else {
-                    if (expired === true) { 
-                        return (
-                        <>
-                          <p>The position is expired.</p>
-                          <button className="expired" onClick={handleDeleteClick}>No longer on the market? Remove it</button>
-                        </>
-                        )
-                } else {
-                    return (
-                    <>
-                      <p>Active job posting</p>
-                      <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
-                    </>
-                    ) 
-                  }
-                }  
-              })
-            ()
+          {expired ?
+            <>
+              <p>The position is expired.</p>
+              <button className="expired" onClick={handleDeleteClick}>No longer on the market? Remove it</button>
+            </>    
+          :
+            <>
+              <p>Active job posting</p>
+              <button className="open job" onClick={handleHireClick}>Hire a Hipster!</button>
+            </>                
           }
        </div>
       )
