@@ -51,9 +51,7 @@ function JobDetails({allJobs, updateAllJobs, allHipsters, updateAllHipsters}) {
       updateAllJobs(updatedJobs)
     })
     navigate("/jobs")
-  }  
-
-  //remove open logic and navigate someone to Hipsterview once hired
+  }   
  
 
   return (

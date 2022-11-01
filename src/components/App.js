@@ -32,27 +32,15 @@ function App() {
     const updatedJobs = [...allJobs, newJob]
     setAllJobs(updatedJobs)
   }
-
-  //instead of adding filter out the job from the array
+  
   function updateAllJobs(jobData){
-    const updatedJobs = allJobs.map((job) => {
-      if (job.id === jobData.id){
-        return jobData
-      } else {
-        return job
-      }
-    })
+    const updatedJobs = allJobs.filter((job) => job.id !== jobData.id)
     setAllJobs(updatedJobs)
   }
 
   function updateAllHipsters(hipsterData){
-    const updatedHipsters = allHipsters.map((hipster) => {
-      if (hipster.id === hipsterData.id){
-        return hipsterData
-      } else {
-        return hipster
-      }
-    }) //filter out the hipster,then add back to the front of the array, then set all hipsters. Hve the patch route someone to hipster View
+    const updatedHipsterList = allHipsters.filter((hipster) => hipster.id !== hipsterData.id)
+    const updatedHipsters = [hipsterData, ...updatedHipsterList]    
     setAllHipsters(updatedHipsters)
   }  
 
